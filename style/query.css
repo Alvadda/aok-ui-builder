@@ -1,0 +1,23 @@
+@media screen and (max-width: 1800px) {
+  body {
+    grid-template:
+      "header " 125px
+      "aside" auto
+      "ui " 1fr
+      "footer" 50px
+      / 1fr;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .aside {
+    padding: 42px;
+    flex-direction: row;
+  }
+
+  .frame-container {
+    flex-direction: row;
+    margin-left: 42px;
+  }
+}
