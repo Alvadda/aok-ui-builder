@@ -7,6 +7,7 @@ const outputEnemy = document.querySelector('.output-emeny')
 const copyAlly = document.querySelector('.copy-ally')
 const copyEnemy = document.querySelector('.copy-enemy')
 const ui = document.querySelector('.ui')
+const switchGrid = document.querySelector('.switch')
 let selectedFrame =  null;
 let mousdown = false;
 
@@ -18,6 +19,11 @@ const getAxis = (element) => {
         x,
         y
     }
+}
+
+const setGrid = () => {
+    const checked = switchGrid.children[0].checked
+    ui.style.backgroundImage = checked ? "url('./images/game_grid.webp')" : "url('./images/game.webp')";
 }
 
 const calcOffset = (pixel) => {
@@ -61,7 +67,7 @@ const getPositions = () => {
 }
 
 getPositions()
-
+setGrid()
 
 
 ui.onmousedown = () =>  mousdown = true
@@ -74,6 +80,8 @@ ui.onmousemove = (event) => {
     }
 }
 
+
+
 frames.forEach((frame) => {
     frame.addEventListener('click', (event) => {
         removeSelection()
@@ -81,6 +89,10 @@ frames.forEach((frame) => {
         selectedFrame.classList.add('selected')
     });
   });
+
+switchGrid.addEventListener('click', () => {
+    setGrid()
+})
 
 copyAlly.addEventListener('click', () => {
     addToClipboard(outputAlly.value)
