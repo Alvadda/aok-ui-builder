@@ -39,6 +39,7 @@ const removeSelection = () => {
     frames.forEach((frame) => {
         frame.classList.remove('selected')
     })
+    mousdown = false
 }
 
 const getPositions = () => {
@@ -68,7 +69,6 @@ const getPositions = () => {
 
 getPositions()
 setGrid()
-
 
 ui.onmousedown = (event) =>  {
     mousdown = true
