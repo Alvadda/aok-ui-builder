@@ -70,7 +70,12 @@ getPositions()
 setGrid()
 
 
-ui.onmousedown = () =>  mousdown = true
+ui.onmousedown = (event) =>  {
+    mousdown = true
+    if (!event.target.classList.contains('frame')) {
+        removeSelection()
+    }
+}
 ui.onmouseup = () => mousdown = false
 ui.onmousemove = (event) => {
     if (selectedFrame && mousdown) {
