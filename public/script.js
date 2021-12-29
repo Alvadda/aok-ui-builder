@@ -87,27 +87,25 @@ ui.onmousemove = (event) => {
     }
 }
 
-
-
 frames.forEach((frame) => {
-    frame.addEventListener('click', (event) => {
+    frame.onclick = (event) => {
         removeSelection()
         selectedFrame = event.target
         selectedFrame.classList.add('selected')
-    });
+    }
   });
 
-switchGrid.addEventListener('click', () => {
-    setGrid()
-})
 
-copyAlly.addEventListener('click', () => {
+switchGrid.onclick = setGrid
+
+
+copyAlly.onclick = () => {
     addToClipboard(outputAlly.value)
-})
+}
 
-copyEnemy.addEventListener('click', () => {
+copyEnemy.onclick = () => {
     addToClipboard(outputEnemy.value)
-})
+}
 
 
 window.addEventListener('keydown', (event) => {
