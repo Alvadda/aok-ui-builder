@@ -216,11 +216,6 @@ body::after {
   transform: scale(0.9);
 }
 
-.switch input {
-  position: absolute;
-  opacity: 0;
-}
-
 .switch-label {
   display: flex;
   align-items: center;
@@ -229,6 +224,11 @@ body::after {
 
 .switch-label p {
   font-size: 24px;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
 }
 
 .switch {

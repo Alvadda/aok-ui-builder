@@ -88,7 +88,7 @@ ui.onmousedown = (event) =>  {
 }
 ui.onmouseup = () => mousdown = false
 ui.onmousemove = (event) => {
-    if (selectedFrame && mousdown) {
+    if (selectedFrame && mousdown && !event.target.classList.contains('frame')) {
         selectedFrame.style.left = `${event.offsetX}px`
         selectedFrame.style.bottom = `${(ui.offsetHeight - event.offsetY)}px`
         updatePositions()
