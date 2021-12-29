@@ -2,7 +2,7 @@
 
 ## A small Website to configur your your Arena of kings UI
 
-![Picture of the site arenaofkingsuibuilder.com](./images/arenaofkingsuibuilder.webp)
+![Picture of the site arenaofkingsuibuilder.com](./doc/arenaofkingsuibuilder.webp)
 
 ## For this site I used:
 
