@@ -9,9 +9,14 @@ const outputEnemy = document.querySelector('.output-emeny')
 const copyAlly = document.querySelector('.copy-ally')
 const copyEnemy = document.querySelector('.copy-enemy')
 const ui = document.querySelector('.ui')
-const switchGrid = document.querySelector('.switch')
+const switchGrid = document.querySelector('#grid-switch')
+const switchPlayer = document.querySelector('#player-switch')
+
 let selectedFrame =  null;
 let mousdown = false;
+
+let allyPositions = []
+let enemyPositions = []
 
 const getAxis = (element) => {
     const x = window.getComputedStyle(element).left
@@ -23,9 +28,12 @@ const getAxis = (element) => {
     }
 }
 
+const getSwitchValue = (switchEle) => {
+    return switchEle.children[0].checked
+}
+
 const setGrid = () => {
-    const checked = switchGrid.children[0].checked
-    ui.style.backgroundImage = checked ? "url('./images/game_grid.webp')" : "url('./images/game.webp')";
+    ui.style.backgroundImage = getSwitchValue(switchGrid) ? "url('./images/game_grid.webp')" : "url('./images/game.webp')";
 }
 
 const calcOffset = (pixel, from, to) => {
@@ -44,14 +52,14 @@ const removeSelection = () => {
     mousdown = false
 }
 
-const getPositions = () => {
-    const allyPositions = []
-    const enemyPositions = []
+const updatePositions = () => {
+    allyPositions = []
+    enemyPositions = []
+
     frames.forEach((frame) => {
         const { x, y } = getAxis(frame)
 
         if (frame.id.includes('ALLY')) {
-            
             allyPositions.push(`"${frame.id}_HIDDEN": "false",`)
             allyPositions.push(`"${frame.id}_X_OFFSET": "${calcOffset(x, ui.offsetWidth, GAME_WIDTH)}",`)
             allyPositions.push(`"${frame.id}_Y_OFFSET": "${calcOffset(y ,ui.offsetHeight, GAME_HEIGHT)}",`)
@@ -69,7 +77,7 @@ const getPositions = () => {
     outputEnemy.value = enemyPositions.join('\n')
 }
 
-getPositions()
+updatePositions()
 setGrid()
 
 ui.onmousedown = (event) =>  {
@@ -83,7 +91,7 @@ ui.onmousemove = (event) => {
     if (selectedFrame && mousdown) {
         selectedFrame.style.left = `${event.offsetX}px`
         selectedFrame.style.bottom = `${(ui.offsetHeight - event.offsetY)}px`
-        getPositions()
+        updatePositions()
     }
 }
 
@@ -93,11 +101,9 @@ frames.forEach((frame) => {
         selectedFrame = event.target
         selectedFrame.classList.add('selected')
     }
-  });
-
+});
 
 switchGrid.onclick = setGrid
-
 
 copyAlly.onclick = () => {
     addToClipboard(outputAlly.value)
@@ -106,7 +112,6 @@ copyAlly.onclick = () => {
 copyEnemy.onclick = () => {
     addToClipboard(outputEnemy.value)
 }
-
 
 window.addEventListener('keydown', (event) => {
     const { style } = selectedFrame
@@ -135,5 +140,5 @@ window.addEventListener('keydown', (event) => {
         default:
             break;
     }
-    getPositions()
+    updatePositions()
 })

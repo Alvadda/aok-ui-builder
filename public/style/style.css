@@ -98,13 +98,25 @@ body::after {
 
 .main {
   display: flex;
-  justify-content: center;
-  align-items: start;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
 
   height: 100%;
   width: 100%;
 
   grid-area: ui;
+}
+
+.controll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 24px;
+
+  width: 100%;
 }
 
 .ui {
@@ -209,11 +221,17 @@ body::after {
   opacity: 0;
 }
 
-.switch {
-  position: absolute;
-  top: 14px;
-  right: 14px;
+.switch-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
+.switch-label p {
+  font-size: 24px;
+}
+
+.switch {
   display: inline-block;
   font-size: 20px;
   height: 1em;
