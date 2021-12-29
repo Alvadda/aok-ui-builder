@@ -21,3 +21,38 @@
     margin-left: 42px;
   }
 }
+
+@media screen and (min-width: 2500px) {
+  body::after {
+    top: 2%;
+    left: -5%;
+  }
+
+  .guide-text {
+    font-size: 32px;
+  }
+
+  .main {
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .aside {
+    gap: 44px;
+  }
+
+  .path-file {
+    font-size: 16px;
+  }
+
+  .frame-container {
+    font-size: 26px;
+    gap: 32px;
+  }
+
+  .output-ally,
+  .output-emeny {
+    font-size: 22px;
+    margin-top: 12px;
+  }
+}
