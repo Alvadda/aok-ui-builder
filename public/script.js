@@ -14,6 +14,8 @@ const switchPlayer = document.querySelector('#player-switch')
 
 let selectedFrame =  null;
 let mousdown = false;
+let lastUiXPosition
+let lastUiYPosition
 
 let allyPositions = []
 let enemyPositions = []
@@ -82,15 +84,25 @@ setGrid()
 
 ui.onmousedown = (event) =>  {
     mousdown = true
+    console.log(event);
     if (!event.target.classList.contains('frame')) {
         removeSelection()
     }
 }
 ui.onmouseup = () => mousdown = false
 ui.onmousemove = (event) => {
-    if (selectedFrame && mousdown && !event.target.classList.contains('frame')) {
-        selectedFrame.style.left = `${event.offsetX}px`
-        selectedFrame.style.bottom = `${(ui.offsetHeight - event.offsetY)}px`
+
+    if (selectedFrame && mousdown) {
+        if (!event.target.classList.contains('frame')) {
+            lastUiXPosition = event.offsetX
+            lastUiYPosition = ui.offsetHeight - event.offsetY
+
+            selectedFrame.style.left = `${lastUiXPosition}px`
+            selectedFrame.style.bottom = `${lastUiYPosition}px`
+        }else {
+            selectedFrame.style.left = `${lastUiXPosition + event.offsetX}px`
+            selectedFrame.style.bottom = `${lastUiYPosition + (event.target.clientHeight - event.offsetY)}px`
+        }
         updatePositions()
     }
 }
