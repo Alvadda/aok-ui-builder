@@ -1,3 +1,8 @@
+:root {
+  --ui-size: 0.7;
+  --enemy-pivot-shift: 40px;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -104,8 +109,8 @@ body::after {
 
 .ui {
   position: relative;
-  height: calc(1080px * 0.7);
-  width: calc(1920px * 0.7);
+  height: calc(1080px * var(--ui-size));
+  width: calc(1920px * var(--ui-size));
 
   box-shadow: 0 0 0 4px #99948b;
   background-image: url("../images/game_grid.webp");
@@ -113,8 +118,8 @@ body::after {
 }
 
 .frame {
-  width: calc(220px * 0.7);
-  height: calc(80px * 0.7);
+  width: calc(220px * var(--ui-size));
+  height: calc(80px * var(--ui-size));
 
   border-radius: 10px;
   background-size: cover;
@@ -122,43 +127,46 @@ body::after {
 
 .ally1 {
   position: absolute;
-  left: calc(475px * 0.7);
-  bottom: calc(290px * 0.7);
+  left: calc(495px * var(--ui-size));
+  bottom: calc(290px * var(--ui-size));
   background-image: url("../images/frame_party1.webp");
 }
 
 .ally2 {
   position: absolute;
-  left: calc(475px * 0.7);
-  bottom: calc(185px * 0.7);
+  left: calc(495px * var(--ui-size));
+  bottom: calc(185px * var(--ui-size));
   background-image: url("../images/frame_party2.webp");
 }
 
 .ally3 {
   position: absolute;
-  left: calc(475px * 0.7);
-  bottom: calc(80px * 0.7);
+  left: calc(495px * var(--ui-size));
+  bottom: calc(80px * var(--ui-size));
   background-image: url("../images/frame_party3.webp");
 }
 
 .enemy1 {
   position: absolute;
-  left: calc(1225px * 0.7);
-  bottom: calc(290px * 0.7);
+  left: calc(1145px * var(--ui-size));
+  bottom: calc(290px * var(--ui-size));
   background-image: url("../images/frame_enemy1.webp");
+  transform: translateX(var(--enemy-pivot-shift));
 }
 
 .enemy2 {
   position: absolute;
-  left: calc(1225px * 0.7);
-  bottom: calc(185px * 0.7);
+  left: calc(1145px * var(--ui-size));
+  bottom: calc(185px * var(--ui-size));
   background-image: url("../images/frame_enemy2.webp");
+  transform: translateX(var(--enemy-pivot-shift));
 }
 .enemy3 {
   position: absolute;
-  left: calc(1225px * 0.7);
-  bottom: calc(80px * 0.7);
+  left: calc(1145px * var(--ui-size));
+  bottom: calc(80px * var(--ui-size));
   background-image: url("../images/frame_enemy3.webp");
+  transform: translateX(var(--enemy-pivot-shift));
 }
 
 .frame-container {

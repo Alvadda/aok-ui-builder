@@ -1,5 +1,7 @@
 const MODIFIER = 1
 const TO_FULL_HD = 1.4286
+const GAME_HEIGHT = 1080
+const GAME_WIDTH = 1920
 
 const frames = document.querySelectorAll('.frame')
 const outputAlly = document.querySelector('.output-ally')
@@ -26,8 +28,8 @@ const setGrid = () => {
     ui.style.backgroundImage = checked ? "url('./images/game_grid.webp')" : "url('./images/game.webp')";
 }
 
-const calcOffset = (pixel) => {
-    return Math.round(parseInt(pixel) * TO_FULL_HD)
+const calcOffset = (pixel, from, to) => {
+    return Math.round((parseInt(pixel) / from) * to)
 }
 
 const addToClipboard = (text) => {
@@ -51,15 +53,15 @@ const getPositions = () => {
         if (frame.id.includes('ALLY')) {
             
             allyPositions.push(`"${frame.id}_HIDDEN": "false",`)
-            allyPositions.push(`"${frame.id}_X_OFFSET": "${calcOffset(x)}",`)
-            allyPositions.push(`"${frame.id}_Y_OFFSET": "${calcOffset(y)}",`)
+            allyPositions.push(`"${frame.id}_X_OFFSET": "${calcOffset(x, ui.offsetWidth, GAME_WIDTH)}",`)
+            allyPositions.push(`"${frame.id}_Y_OFFSET": "${calcOffset(y ,ui.offsetHeight, GAME_HEIGHT)}",`)
         }
 
         if (frame.id.includes('ENEMY')) {
             
             enemyPositions.push(`"${frame.id}_HIDDEN": "false",`)
-            enemyPositions.push(`"${frame.id}_X_OFFSET": "${calcOffset(x)}",`)
-            enemyPositions.push(`"${frame.id}_Y_OFFSET": "${calcOffset(y)}",`)
+            enemyPositions.push(`"${frame.id}_X_OFFSET": "${calcOffset(x, ui.offsetWidth, GAME_WIDTH)}",`)
+            enemyPositions.push(`"${frame.id}_Y_OFFSET": "${calcOffset(y ,ui.offsetHeight, GAME_HEIGHT)}",`)
         }
 
     })
