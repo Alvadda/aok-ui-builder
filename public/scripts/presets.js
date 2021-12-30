@@ -13,6 +13,22 @@ const presets = () => {
   const ENEMY_3_PARTY_FRAME_X_OFFSET = 'ENEMY_3_PARTY_FRAME_X_OFFSET'
   const ENEMY_3_PARTY_FRAME_Y_OFFSET = 'ENEMY_3_PARTY_FRAME_Y_OFFSET'
 
+  const emptyPreset = {
+    [ALLY_1_PARTY_FRAME_X_OFFSET]: 0,
+    [ALLY_1_PARTY_FRAME_Y_OFFSET]: 0,
+    [ALLY_2_PARTY_FRAME_X_OFFSET]: 0,
+    [ALLY_2_PARTY_FRAME_Y_OFFSET]: 0,
+    [ALLY_3_PARTY_FRAME_X_OFFSET]: 0,
+    [ALLY_3_PARTY_FRAME_Y_OFFSET]: 0,
+
+    [ENEMY_1_PARTY_FRAME_X_OFFSET]: 0,
+    [ENEMY_1_PARTY_FRAME_Y_OFFSET]: 0,
+    [ENEMY_2_PARTY_FRAME_X_OFFSET]: 0,
+    [ENEMY_2_PARTY_FRAME_Y_OFFSET]: 0,
+    [ENEMY_3_PARTY_FRAME_X_OFFSET]: 0,
+    [ENEMY_3_PARTY_FRAME_Y_OFFSET]: 0,
+  }
+
   const defaultPreset = {
     [ALLY_1_PARTY_FRAME_X_OFFSET]: 0,
     [ALLY_1_PARTY_FRAME_Y_OFFSET]: 0,
@@ -65,5 +81,6 @@ const presets = () => {
     defaultPreset,
     farPreset,
     closePreset,
+    emptyPreset,
   }
 }

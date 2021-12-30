@@ -15,8 +15,11 @@
   const buttonDefaultPreset = document.querySelector('#set-default-preset')
   const buttonFarPreset = document.querySelector('#set-far-preset')
   const buttonClosePreset = document.querySelector('#set-close-preset')
+  const buttonSavePreset = document.querySelector('#save-preset')
+  const buttonLoadPreset = document.querySelector('#load-preset')
 
   const { defaultPreset, farPreset, closePreset } = presets()
+  const { getLastPreset, savePreset } = userPresets()
 
   let selectedFrame = null
   let mousdown = false
@@ -24,6 +27,7 @@
   let lastUiYPosition
   let allyPositions = []
   let enemyPositions = []
+  let currentPositions = presets().emptyPreset
 
   const getAxis = (element) => {
     const x = window.getComputedStyle(element).left
@@ -65,19 +69,27 @@
 
     frames.forEach((frame) => {
       const { x, y } = getAxis(frame)
+      const frameKeyX = `${frame.id}_X_OFFSET`
+      const frameKeyY = `${frame.id}_Y_OFFSET`
+      const frameValueX = calcOffset(x, ui.offsetWidth, GAME_WIDTH)
+      const frameValueY = calcOffset(y, ui.offsetWidth, GAME_WIDTH)
 
       if (frame.id.includes('ALLY')) {
         allyPositions.push(`"${frame.id}_HIDDEN": "false",`)
-        allyPositions.push(`"${frame.id}_X_OFFSET": "${calcOffset(x, ui.offsetWidth, GAME_WIDTH)}",`)
-        allyPositions.push(`"${frame.id}_Y_OFFSET": "${calcOffset(y, ui.offsetHeight, GAME_HEIGHT)}",`)
+        allyPositions.push(`"${frameKeyX}": "${frameValueX}",`)
+        allyPositions.push(`"${frameKeyY}": "${frameValueY}",`)
       }
 
       if (frame.id.includes('ENEMY')) {
         enemyPositions.push(`"${frame.id}_HIDDEN": "false",`)
-        enemyPositions.push(`"${frame.id}_X_OFFSET": "${calcOffset(x, ui.offsetWidth, GAME_WIDTH)}",`)
-        enemyPositions.push(`"${frame.id}_Y_OFFSET": "${calcOffset(y, ui.offsetHeight, GAME_HEIGHT)}",`)
+        enemyPositions.push(`"${frameKeyX}": "${frameValueX}",`)
+        enemyPositions.push(`"${frameKeyY}": "${frameValueY}",`)
       }
+
+      currentPositions[`${frameKeyX}`] = frameValueX
+      currentPositions[`${frameKeyY}`] = frameValueY
     })
+
     outputAlly.value = allyPositions.join('\n')
     outputEnemy.value = enemyPositions.join('\n')
   }
@@ -140,6 +152,14 @@
 
   buttonClosePreset.onclick = () => {
     setPreset(closePreset)
+  }
+
+  buttonSavePreset.onclick = () => {
+    savePreset(currentPositions)
+  }
+
+  buttonLoadPreset.onclick = () => {
+    setPreset(getLastPreset())
   }
 
   copyAlly.onclick = () => {
