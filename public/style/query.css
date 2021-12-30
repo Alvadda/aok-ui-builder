@@ -1,10 +1,10 @@
 @media screen and (max-width: 1800px) {
   body {
     grid-template:
-      "header " 125px
-      "aside" auto
-      "ui " 1fr
-      "footer" 50px
+      'header ' 125px
+      'aside' auto
+      'ui ' 1fr
+      'footer' 50px
       / 1fr;
 
     justify-content: center;

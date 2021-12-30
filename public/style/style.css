@@ -14,19 +14,19 @@ body {
   max-height: 100vh;
 
   grid-template:
-    "header header header header" 125px
-    "ui ui ui aside" 1fr
-    "footer footer footer footer" 50px
+    'header header header header' 125px
+    'ui ui ui aside' 1fr
+    'footer footer footer footer' 50px
     / 1fr 1fr 1fr 1fr;
 
   background-color: #1b1719;
 
-  font-family: "Marcellus", serif;
+  font-family: 'Marcellus', serif;
   color: #f1f1f2;
 }
 
 body::after {
-  content: "beta";
+  content: 'beta';
   position: absolute;
   top: 3%;
   left: -6%;
@@ -39,7 +39,7 @@ body::after {
   font-weight: 700;
   font-size: 24px;
   text-transform: uppercase;
-  font-family: "Marcellus", serif;
+  font-family: 'Marcellus', serif;
 
   transform: rotate(-46deg);
 }
@@ -53,7 +53,7 @@ body::after {
 }
 
 .title {
-  font-family: "Marcellus", serif;
+  font-family: 'Marcellus', serif;
   font-size: 74px;
 }
 
@@ -125,7 +125,7 @@ body::after {
   width: calc(1920px * var(--ui-size));
 
   box-shadow: 0 0 0 4px #99948b;
-  background-image: url("../images/game_grid.webp");
+  background-image: url('../images/game_grid.webp');
   background-size: cover;
 }
 
@@ -141,28 +141,28 @@ body::after {
   position: absolute;
   left: calc(495px * var(--ui-size));
   bottom: calc(290px * var(--ui-size));
-  background-image: url("../images/frame_party1.webp");
+  background-image: url('../images/frame_party1.webp');
 }
 
 .ally2 {
   position: absolute;
   left: calc(495px * var(--ui-size));
   bottom: calc(185px * var(--ui-size));
-  background-image: url("../images/frame_party2.webp");
+  background-image: url('../images/frame_party2.webp');
 }
 
 .ally3 {
   position: absolute;
   left: calc(495px * var(--ui-size));
   bottom: calc(80px * var(--ui-size));
-  background-image: url("../images/frame_party3.webp");
+  background-image: url('../images/frame_party3.webp');
 }
 
 .enemy1 {
   position: absolute;
   left: calc(1145px * var(--ui-size));
   bottom: calc(290px * var(--ui-size));
-  background-image: url("../images/frame_enemy1.webp");
+  background-image: url('../images/frame_enemy1.webp');
   transform: translateX(var(--enemy-pivot-shift));
 }
 
@@ -170,14 +170,14 @@ body::after {
   position: absolute;
   left: calc(1145px * var(--ui-size));
   bottom: calc(185px * var(--ui-size));
-  background-image: url("../images/frame_enemy2.webp");
+  background-image: url('../images/frame_enemy2.webp');
   transform: translateX(var(--enemy-pivot-shift));
 }
 .enemy3 {
   position: absolute;
   left: calc(1145px * var(--ui-size));
   bottom: calc(80px * var(--ui-size));
-  background-image: url("../images/frame_enemy3.webp");
+  background-image: url('../images/frame_enemy3.webp');
   transform: translateX(var(--enemy-pivot-shift));
 }
 

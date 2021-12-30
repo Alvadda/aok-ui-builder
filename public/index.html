@@ -1,78 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="language" content="en">
-    <meta name="description" content="AoK ⚔️ Arena of Kings UI Builder ⚔️ Customize your frame position in an easy way just as you like it!">
-    <link rel="icon" type="image/x-icon" href="./favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style/style.css">
-    <link rel="stylesheet" href="./style/query.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="language" content="en" />
+    <meta
+      name="description"
+      content="AoK ⚔️ Arena of Kings UI Builder ⚔️ Customize your frame position in an easy way just as you like it!"
+    />
+    <link rel="icon" type="image/x-icon" href="./favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/query.css" />
     <title>AoK ⚔️ Arena of Kings Custom UI &mdash; UI Builder</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
-        <h1 class="title">Arena of Kings UI Builder</h1>
+      <h1 class="title">Arena of Kings UI Builder</h1>
     </header>
     <main class="main">
-        <div class="controll">
-            <div class="switch-label">
-                <label id="grid-switch" class="switch"><input type="checkbox" />    <div></div>
-                </label>
-                <p>Grid</p>
-            </div>
-            <!-- <div class="switch-label">
+      <div class="controll">
+        <div class="switch-label">
+          <label id="grid-switch" class="switch"
+            ><input type="checkbox" />
+            <div></div>
+          </label>
+          <p>Grid</p>
+        </div>
+        <!-- <div class="switch-label">
                 <label id="player-switch" class="switch"><input type="checkbox" />    <div></div>
                 </label>
                 <p>Hide Player</p>
             </div> -->
-        </div>
-        <div class="ui">
-            <div id="ALLY_1_PARTY_FRAME" class="frame ally1"></div>
-            <div id="ALLY_2_PARTY_FRAME" class="frame ally2"></div>
-            <div id="ALLY_3_PARTY_FRAME" class="frame ally3"></div>
-    
-            <div id="ENEMY_1_PARTY_FRAME" class="frame enemy1"></div>
-            <div id="ENEMY_2_PARTY_FRAME" class="frame enemy2"></div>
-            <div id="ENEMY_3_PARTY_FRAME" class="frame enemy3"></div>
-        </div>
+      </div>
+      <div class="ui">
+        <div id="ALLY_1_PARTY_FRAME" class="frame ally1"></div>
+        <div id="ALLY_2_PARTY_FRAME" class="frame ally2"></div>
+        <div id="ALLY_3_PARTY_FRAME" class="frame ally3"></div>
+
+        <div id="ENEMY_1_PARTY_FRAME" class="frame enemy1"></div>
+        <div id="ENEMY_2_PARTY_FRAME" class="frame enemy2"></div>
+        <div id="ENEMY_3_PARTY_FRAME" class="frame enemy3"></div>
+      </div>
     </main>
     <aside class="aside">
-        <div class="guide">
-            <ul class="guide-list">
-                <li>
-                    <p class="guide-text">1. Click on any frame to select it</p>
-                </li>
-                <li>
-                    <p class="guide-text">2. Move the selected frame to your desired destination by using the arrow keys or simply drag them by using the left mouse button</p>
-                </li>
-                <li>
-                    <p class="guide-text">3. You can toggle a grid overlay on the top right corner of the screenshot</p>
-                </li>
-                <li>
-                    <p class="guide-text">
-                        4. Replace the PARTY_FRAME lines of your options.json file (standard path as below) with the following: <br>
-                        <code class="path-file">C:\Program Files (x86)\Steam\steamapps\common\Arena of Kings</code>
-                </p>
-                </li>
-            </ul>
+      <div class="guide">
+        <ul class="guide-list">
+          <li>
+            <p class="guide-text">1. Click on any frame to select it</p>
+          </li>
+          <li>
+            <p class="guide-text">
+              2. Move the selected frame to your desired destination by using the arrow keys or simply drag them by using the left mouse
+              button
+            </p>
+          </li>
+          <li>
+            <p class="guide-text">3. You can toggle a grid overlay on the top right corner of the screenshot</p>
+          </li>
+          <li>
+            <p class="guide-text">
+              4. Replace the PARTY_FRAME lines of your options.json file (standard path as below) with the following: <br />
+              <code class="path-file">C:\Program Files (x86)\Steam\steamapps\common\Arena of Kings</code>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="frame-container">
+        <div>
+          <label for="output-ally">ALLY FRAMES</label> <button class="copy copy-ally">Copy</button>
+          <textarea name="output-ally" class="output-ally" cols="40" rows="9" readonly></textarea>
         </div>
-        <div class="frame-container">
-            <div>
-                <label for="output-ally">ALLY FRAMES</label> <button class="copy copy-ally">Copy</button>
-                <textarea name="output-ally" class="output-ally" cols="40" rows="9" readonly></textarea>
-            </div>
-            <div>
-                <label for="output-emeny">ENEMY FRAMES</label> <button class="copy copy-enemy">Copy</button>
-                <textarea name="output-emeny" class="output-emeny" cols="40" rows="9" readonly></textarea>
-            </div>
+        <div>
+          <label for="output-emeny">ENEMY FRAMES</label> <button class="copy copy-enemy">Copy</button>
+          <textarea name="output-emeny" class="output-emeny" cols="40" rows="9" readonly></textarea>
         </div>
+      </div>
     </aside>
     <footer class="footer">
-        <p>created by Alvadda</p>
+      <p>created by Alvadda</p>
     </footer>
     <script defer src="./script.js"></script>
-</body>
+  </body>
 </html>
