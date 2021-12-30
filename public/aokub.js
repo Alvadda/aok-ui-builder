@@ -12,11 +12,16 @@
   const ui = document.querySelector('.ui')
   const switchGrid = document.querySelector('#grid-switch')
 
+  const buttonDefaultPreset = document.querySelector('#set-default-preset')
+  const buttonFarPreset = document.querySelector('#set-far-preset')
+  const buttonClosePreset = document.querySelector('#set-close-preset')
+
+  const { defaultPreset, farPreset, closePreset } = presets()
+
   let selectedFrame = null
   let mousdown = false
   let lastUiXPosition
   let lastUiYPosition
-
   let allyPositions = []
   let enemyPositions = []
 
@@ -77,6 +82,17 @@
     outputEnemy.value = enemyPositions.join('\n')
   }
 
+  const setPreset = (preset) => {
+    const uiSize = getComputedStyle(document.documentElement).getPropertyValue('--ui-size')
+
+    frames.forEach((frame) => {
+      const { style } = frame
+      style.left = `${preset[`${frame.id}_X_OFFSET`] * uiSize}px`
+      style.bottom = `${preset[`${frame.id}_Y_OFFSET`] * uiSize}px`
+    })
+    updatePositions()
+  }
+
   updatePositions()
   setGrid()
 
@@ -112,6 +128,18 @@
   })
 
   switchGrid.onclick = setGrid
+
+  buttonDefaultPreset.onclick = () => {
+    setPreset(defaultPreset)
+  }
+
+  buttonFarPreset.onclick = () => {
+    setPreset(farPreset)
+  }
+
+  buttonClosePreset.onclick = () => {
+    setPreset(closePreset)
+  }
 
   copyAlly.onclick = () => {
     addToClipboard(outputAlly.value)
