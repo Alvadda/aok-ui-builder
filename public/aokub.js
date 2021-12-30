@@ -172,6 +172,8 @@
   }
 
   window.addEventListener('keydown', (event) => {
+    if (!selectedFrame) return
+
     const { style } = selectedFrame
     const { x, y } = getAxis(selectedFrame)
 
