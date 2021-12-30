@@ -307,7 +307,7 @@ body::after {
   width: 10rem;
 
   background: none;
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-border);
 
   color: var(--color-font-bright);
   font-family: inherit;

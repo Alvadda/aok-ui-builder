@@ -7,7 +7,6 @@
   const outputAlly = document.querySelector('.output-ally')
   const outputEnemy = document.querySelector('.output-emeny')
   const ui = document.querySelector('.ui')
-  const controllContainer = document.querySelector('.controll')
 
   const switchGrid = document.querySelector('#grid-switch')
 
