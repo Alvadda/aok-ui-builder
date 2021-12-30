@@ -144,13 +144,25 @@ body::after {
 }
 
 .controll {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+
+  gap: var(--space-m);
+
+  width: calc(1920px * var(--ui-size));
+}
+
+.presets {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  gap: 24px;
+  gap: var(--space-ssm);
+}
 
-  width: 100%;
+.presets:last-of-type {
+  justify-content: end;
 }
 
 .ui {
