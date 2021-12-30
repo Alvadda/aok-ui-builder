@@ -90,6 +90,7 @@
       style.left = `${preset[`${frame.id}_X_OFFSET`] * uiSize}px`
       style.bottom = `${preset[`${frame.id}_Y_OFFSET`] * uiSize}px`
     })
+
     updatePositions()
   }
 

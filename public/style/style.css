@@ -11,6 +11,7 @@
 
   --text-size-s: 1.2rem;
   --text-size-ssm: 1.4rem;
+  --text-size-smm: 1.6rem;
   --text-size-sm: 1.8rem;
   --text-size-m: 2.4rem;
   --text-size-ml: 3rem;
@@ -23,6 +24,12 @@
   --space-m: 2.4rem;
   --space-l: 4.8rem;
   --space-xl: 9.8rem;
+
+  --color-bg: #1b1719;
+  --color-bg-shader-1: #322e30;
+  --color-border: #99948b;
+  --color-font-bright: #fff;
+  --color-font-heading: #f1f1f2;
 }
 
 * {
@@ -47,10 +54,10 @@ body {
     'footer footer footer footer' 50px
     / 1fr 1fr 1fr 1fr;
 
-  background-color: #1b1719;
+  background-color: var(--color-bg);
 
   font-family: 'Marcellus', serif;
-  color: #f1f1f2;
+  color: var(--color-font-heading);
 }
 
 body::after {
@@ -60,7 +67,7 @@ body::after {
   left: -4%;
   padding: var(--space-ssm) var(--space-xl);
 
-  color: #1b1719;
+  color: var(--color-bg);
   background-color: #ffef00;
 
   font-weight: 700;
@@ -151,7 +158,7 @@ body::after {
   height: calc(1080px * var(--ui-size));
   width: calc(1920px * var(--ui-size));
 
-  box-shadow: 0 0 0 0.4rem #99948b;
+  box-shadow: 0 0 0 0.4rem var(--color-border);
   background-image: url('../images/game_grid.webp');
   background-size: cover;
 }
@@ -217,18 +224,18 @@ body::after {
 }
 
 .selected {
-  box-shadow: 0 0 0 2px #99948b;
+  box-shadow: 0 0 0 2px var(--color-border);
 }
 
 .output-ally,
 .output-emeny {
   display: flex;
   font-size: var(--text-size-ssm);
-  color: #fff;
-  background-color: #1b1719;
+  color: var(--color-font-bright);
+  background-color: var(--color-bg);
   resize: none;
   padding: var(--space-ssm);
-  box-shadow: 0 0 0 0.2rem #99948b;
+  box-shadow: 0 0 0 0.2rem var(--color-border);
 
   margin-top: var(--space-ssm);
 }
@@ -283,4 +290,29 @@ body::after {
   -webkit-transform: translate3d(100%, 0, 0);
   -moz-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
+}
+
+.preset-btn {
+  height: 3rem;
+  width: 10rem;
+
+  background: none;
+  border: 1px solid var(--color-border);
+
+  color: var(--color-font-bright);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: var(--text-size-sm);
+
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.preset-btn:active {
+  transform: scale(0.9);
+}
+
+.preset-btn:hover {
+  background-color: var(--color-bg-shader-1);
 }
