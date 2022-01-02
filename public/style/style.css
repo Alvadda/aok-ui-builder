@@ -7,7 +7,7 @@
 */
 :root {
   --ui-size: 0.7;
-  --enemy-pivot-shift: 40px;
+  --enemy-pivot-shift: calc(55px * var(--ui-size));
 
   --text-size-s: 1.2rem;
   --text-size-ssm: 1.4rem;
@@ -58,24 +58,6 @@ body {
 
   font-family: 'Marcellus', serif;
   color: var(--color-font-heading);
-}
-
-body::after {
-  content: 'beta';
-  position: absolute;
-  top: 3%;
-  left: -4%;
-  padding: var(--space-ssm) var(--space-xl);
-
-  color: var(--color-bg);
-  background-color: #ffef00;
-
-  font-weight: 700;
-  font-size: var(--text-size-m);
-  text-transform: uppercase;
-  font-family: 'Marcellus', serif;
-
-  transform: rotate(-46deg);
 }
 
 .header {
